@@ -4,20 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MI PROGRAMA 80</title>
+    <style>
+        @keyframes moverTexto {
+            from { transform: translateX(0); }
+            to { transform: translateX(100%); }
+        }
+        .texto-movimiento {
+            display: inline-block;
+            animation: moverTexto 5s linear infinite alternate;
+            color: violet;
+            font-family: "BELL MT", serif;
+            font-size: 40px;
+        }
+    </style>
 </head>
 <body>
 
     <!-- Audio -->
-    <audio autoplay controls loop>
+    <audio controls>
         <source src="musica/amapolas.mp3" type="audio/mpeg">
     </audio>
-    <audio autoplay controls loop>
+    <audio controls>
         <source src="musica/cuento.mp3" type="audio/mpeg">
     </audio>
-    <audio autoplay controls loop>
+    <audio controls>
         <source src="musica/brujula.mp3" type="audio/mpeg">
     </audio>
-    <audio autoplay controls loop>
+    <audio controls>
         <source src="musica/humbe.mp3" type="audio/mpeg">
     </audio>
 
@@ -38,7 +51,7 @@
         <source src="videos/ceni.mp4" type="video/mp4">
     </video>
 
-    <!-- Enlaces a otros programas con im genes -->
+    <!-- Enlaces a otros programas con imágenes -->
     <a href="programas/prog20.html">
         <img src="imagenes/blanca.gif" alt="Blanca">
     </a>
@@ -54,49 +67,43 @@
     <br>
 
     <!-- Preguntas con JavaScript -->
- <script>
-        var fv = prompt("¿cual es tu nombre?");
+  <script>
+        var fv = prompt("¿Cual es tu nombbre?");
         alert("Tu respuesta fue: " + fv);
     </script>
-
- <script>
-        var fv = prompt("¿cual es tu edad?");
+  <script>
+        var fv = prompt("¿Cual es tu edad?");
         alert("Tu respuesta fue: " + fv);
     </script>
-
-
- <script>
-        var fv = prompt("¿De donde eres?");
+    <script>
+        var fv = prompt("¿Cual es tu pelicula favorita?");
         alert("Tu respuesta fue: " + fv);
     </script>
 
     <script>
-        var fv = prompt("¿cual es tu pel cula favorita?");
-        alert("Tu respuesta fue: " + fv);
-    </script>
-
-    <script>
-        var mt = prompt(" Cu l es tu materia favorita?");
+        var mt = prompt("¿Cual es tu materia favorita?");
         alert("Tu materia favorita es: " + mt);
     </script>
+     var fv = prompt("¿Cual es tu comida favorita?");
+        alert("Tu respuesta fue: " + fv);
+    </script>
 
-    <!-- Texto en movimiento -->
-    <marquee direction="right" scrollamount="10" loop="100">
-        <font color="violet" face="BELL MT" size="40">
-            DIANA OCERIN ROSANO <br>
-        </font>
-    </marquee>
 
-    <!-- Informaci n sobre las estrellas -->
-    <font color="olivedrab" size="5" face="BELL MT">
+    <!-- Texto en movimiento con CSS -->
+    <div class="texto-movimiento">
+        DIANA OCERIN ROSANO <br>
+    </div>
+
+    <!-- Información sobre las estrellas -->
+    <p style="color: olivedrab; font-size: 20px; font-family: 'BELL MT', serif;">
         <b>
-            Las estrellas transforman el hidrogeno en helio para brillar.<br>
-            Cuando este hidrogeno se acaba y el nucleo solo es de helio,<br>
-            la estrella se vuelve mas fria y mas brillante, hay una explosion.<br>
+            Las estrellas transforman el hidrógeno en helio para brillar.<br>
+            Cuando este hidrógeno se acaba y el núcleo solo es de helio,<br>
+            la estrella se vuelve más fría y más brillante, y ocurre una explosión.<br>
             Se mueren y sus restos originan una estrella de neutrones.<br>
             A esto se le conoce como "supernova".
         </b>
-    </font>
+    </p>
 
 </body>
-</html
+</html>
