@@ -5,32 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MI PROGRAMA 80</title>
     <style>
-        @keyframes moverTexto {
-            from { transform: translateX(0); }
-            to { transform: translateX(100%); }
+        /* Estilo para el texto en movimiento */
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
         }
-        .texto-movimiento {
+        .marquee span {
             display: inline-block;
-            animation: moverTexto 5s linear infinite alternate;
-            color: violet;
-            font-family: "BELL MT", serif;
+            padding-left: 100%;
+            animation: marquee 5s linear infinite;
             font-size: 40px;
+            color: violet;
+            font-family: "BELL MT";
+        }
+        @keyframes marquee {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+
+        /* Estilo para el texto de información */
+        .texto-estrellas {
+            color: olivedrab;
+            font-size: 20px;
+            font-family: "BELL MT";
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <!-- Audio -->
-    <audio controls>
+    <!-- Audio (Solo uno puede reproducirse a la vez) -->
+    <audio controls class="audio">
         <source src="musica/amapolas.mp3" type="audio/mpeg">
     </audio>
-    <audio controls>
+    <audio controls class="audio">
         <source src="musica/cuento.mp3" type="audio/mpeg">
     </audio>
-    <audio controls>
+    <audio controls class="audio">
         <source src="musica/brujula.mp3" type="audio/mpeg">
     </audio>
-    <audio controls>
+    <audio controls class="audio">
         <source src="musica/humbe.mp3" type="audio/mpeg">
     </audio>
 
@@ -67,43 +82,48 @@
     <br>
 
     <!-- Preguntas con JavaScript -->
-  <script>
-        var fv = prompt("¿Cual es tu nombbre?");
-        alert("Tu respuesta fue: " + fv);
-    </script>
-  <script>
-        var fv = prompt("¿Cual es tu edad?");
-        alert("Tu respuesta fue: " + fv);
-    </script>
     <script>
+var fv = prompt("¿Cual es tu nombre completo?");
+        alert("Tu respuesta fue: " + fv);
+
+var fv = prompt("¿Cual es tu edad favorita?");
+        alert("Tu respuesta fue: " + fv);
+
+var fv = prompt("¿Cual es tu direccion?");
+        alert("Tu respuesta fue: " + fv);
+
         var fv = prompt("¿Cual es tu pelicula favorita?");
         alert("Tu respuesta fue: " + fv);
-    </script>
+        
 
-    <script>
         var mt = prompt("¿Cual es tu materia favorita?");
         alert("Tu materia favorita es: " + mt);
     </script>
-     var fv = prompt("¿Cual es tu comida favorita?");
-        alert("Tu respuesta fue: " + fv);
-    </script>
 
-
-    <!-- Texto en movimiento con CSS -->
-    <div class="texto-movimiento">
-        DIANA OCERIN ROSANO <br>
+    <!-- Texto en movimiento -->
+    <div class="marquee">
+        <span>DIANA OCERIN ROSANO</span>
     </div>
 
     <!-- Información sobre las estrellas -->
-    <p style="color: olivedrab; font-size: 20px; font-family: 'BELL MT', serif;">
-        <b>
-            Las estrellas transforman el hidrógeno en helio para brillar.<br>
-            Cuando este hidrógeno se acaba y el núcleo solo es de helio,<br>
-            la estrella se vuelve más fría y más brillante, y ocurre una explosión.<br>
-            Se mueren y sus restos originan una estrella de neutrones.<br>
-            A esto se le conoce como "supernova".
-        </b>
+    <p class="texto-estrellas">
+        Las estrellas transforman el hidrogeno en helio para brillar.<br>
+        Cuando este hidrogeno se acaba y el nucleo solo es de helio,<br>
+        la estrella se vuelve mas fría y mas brillante, hay una explosion.<br>
+        Se mueren y sus restos originan una estrella de neutrones.<br>
+        A esto se le conoce como "supernova".
     </p>
+
+    <!-- Script para controlar el audio -->
+    <script>
+        document.querySelectorAll('.audio').forEach(audio => {
+            audio.addEventListener('play', function() {
+                document.querySelectorAll('.audio').forEach(otherAudio => {
+                    if (otherAudio !== this) otherAudio.pause();
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
